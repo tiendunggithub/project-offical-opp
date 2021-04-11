@@ -5,7 +5,7 @@
  */
 package swingexa.console;
 
-import dao.Student;
+import dao.Product;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -80,7 +80,7 @@ public class dbutils {
                     this.username, this.password);
             return conn;
         } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(Student.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
         }
         return conn;
     }

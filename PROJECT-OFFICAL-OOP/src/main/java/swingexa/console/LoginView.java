@@ -19,7 +19,7 @@ public class LoginView {
     public UserModel login_information(){
         System.out.println("+++++++++++++++++++++++++++++");
         UserModel result = new UserModel();
-        System.out.println("Username: ");
+        System.out.println("UserName: ");
         Scanner sc = new Scanner(System.in);
         String username = sc.nextLine();
         System.out.println("Password: ");

@@ -12,17 +12,17 @@ package dao;
  * @author LOVE
  */
 public class MenuController {
-    private StudentController st_contrl;
+    private ProductController st_contrl;
     private MenuView mnview;
 
     public MenuController() {
     }
 
-    public MenuController(StudentController st_contrl) {
+    public MenuController(ProductController st_contrl) {
         this.st_contrl = st_contrl;
     }
 
-    public MenuController(StudentController st_contrl, MenuView mnview) {
+    public MenuController(ProductController st_contrl, MenuView mnview) {
         this.st_contrl = st_contrl;
         this.mnview = mnview;
     }
@@ -35,10 +35,10 @@ public class MenuController {
             int kq = mnview.hien_thi_menu();
             switch(kq){
                 case 1: 
-                    st_contrl.nhap_danh_sach_sinh_vien();
+                    st_contrl.enter_product_list();
                     break;
                 case 2:
-                    st_contrl.tim_kiem_sv_theo_sdt();
+                    st_contrl.search_by_unit_price();
                     break;
                 case 3: 
                     flag = false;

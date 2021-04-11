@@ -31,7 +31,7 @@ public class KetNoiCSDL {
                     "jdbc:mysql://localhost:3306/qlsp",
                     "root", "01639861242")) {
                 Statement stmt=conn.createStatement();
-                ResultSet rs=stmt.executeQuery("select * from sanpham");
+                ResultSet rs=stmt.executeQuery("select * from product");
                 while(rs.next())
                     System.out.println(rs.getInt("actor_id")+"  "+rs.getString("first_name")+"  "+rs.getString("last_name"));
             }  

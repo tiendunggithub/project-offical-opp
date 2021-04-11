@@ -5,7 +5,7 @@
  */
 package swingexa.console;
 
-import dao.Student;
+import dao.Product;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,9 +23,14 @@ public class UserModel {
     private String username;
     private String password;
     
+    
+//    private int iduser;
+//    private String username;
+//    private String password;
+//    
 
     public UserModel() {
-    }
+    }    
 
     public UserModel(String username, String password) {
         this.username = username;

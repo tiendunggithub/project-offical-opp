@@ -10,7 +10,7 @@ package dao;
  *
  * @author LOVE
  */
-public class StudentMVC {
+public class ProductMVC {
 
     /**
      * @param args the command line arguments
@@ -21,21 +21,21 @@ public class StudentMVC {
     }
     
     public static void kich_ban_3(){
-        MenuController menu = new MenuController(new StudentController(new StudentView()), 
+        MenuController menu = new MenuController(new ProductController(new ProductView()), 
                                 new MenuView());
         menu.lua_chon_menu();
     }
     
     public static void kich_ban_1(){
-        StudentController sc = new StudentController(new StudentView());
-        sc.nhap_du_lieu_sinh_vien();
+        ProductController sc = new ProductController(new ProductView());
+        sc.enter_product_data();
        
     }
     
     public static void kich_ban_2(){
-        StudentController sc = new StudentController(new StudentView());
-        sc.nhap_danh_sach_sinh_vien();
+        ProductController sc = new ProductController(new ProductView());
+        sc.enter_product_list();
         sc.hien_thi_danh_sach_sinh_vien();
-        sc.tim_kiem_sv_theo_sdt();
+        sc.search_by_unit_price();
     }
 }
