@@ -23,29 +23,30 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author MyPC
  */
-public class DanhSachSinhVienFrame extends javax.swing.JInternalFrame {
+public class ProductListFrame extends javax.swing.JInternalFrame {
     
     
 
     /**
-     * Creates new form DanhSachSinhVienFrame
+     * Creates new form ProductListFrame
      */
-    public DanhSachSinhVienFrame() {
+    public ProductListFrame() {
         initComponents();
-        get_student_list();
+        get_product_list();
         Point center = GraphicsEnvironment.getLocalGraphicsEnvironment().getCenterPoint();
         this.setBounds (center.x - this.getWidth()/ 2, center.y - this.getHeight() / 2, this.getWidth(), this.getHeight());
     }
 
-    private void get_student_list(){
-        Student temp = new Student();
-        ArrayList<Student> students = temp.lay_danh_sach_sinh_vien();
+    private void get_product_list(){
+        Product temp = new Product();
+        ArrayList<Product> products = temp.get_product_list();
         DefaultTableModel table = (DefaultTableModel) this.jTable1.getModel();
-        for(Student sv: students){
-            table.addRow(new Object[]{sv.getIdstudent(),
-                                sv.getFullname(),
-                                sv.getSdt(),
-                                sv.getEmail()});
+        for(Product sv: products){
+            table.addRow(new Object[]{sv.getIdproduct(),
+                                sv.getProduct(),
+                                sv.getUnitprice(),
+                                sv.getUnit(),
+                                sv.getSpecies()});
 //            System.out.println(sv.toString());
         }
         this.validate();
@@ -77,14 +78,14 @@ public class DanhSachSinhVienFrame extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "ID", "Fullname", "Phone", "Email"
+                "ID", "Product", "Unitprice", "Unit", "Species"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -171,10 +172,10 @@ public class DanhSachSinhVienFrame extends javax.swing.JInternalFrame {
         String s = jTable1.getModel().getValueAt(row, 0).toString();
         int id = Integer.parseInt(s);
         JDesktopPane dk = getDesktopPane();
-        SuaDuLieuSinhVienFrame suaframe = new SuaDuLieuSinhVienFrame();
-        suaframe.setIdstudent(id);
-        //suaframe.load_student_data();
-        suaframe.load_student_image_data();
+        EditProductDataFrame suaframe = new EditProductDataFrame();
+        suaframe.setIdproduct(id);
+        //suaframe.load_product_data();
+        suaframe.load_product_image_data();
         dk.add(suaframe);
         suaframe.setVisible(true);
     }//GEN-LAST:event_jTable1MouseClicked

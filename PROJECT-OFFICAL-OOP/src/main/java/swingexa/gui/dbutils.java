@@ -80,7 +80,7 @@ public class dbutils {
                     this.username, this.password);
             return conn;
         } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(Student.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
         }
         return conn;
     }

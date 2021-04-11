@@ -35,24 +35,26 @@ public class NhapSinhVienFrame extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jtxtFullname = new javax.swing.JTextField();
+        jtxtProduct = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jtxtSdt = new javax.swing.JTextField();
+        jtxtUnitprice = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jtxtEmail = new javax.swing.JTextField();
+        jtxtUnit = new javax.swing.JTextField();
         jbtnCancel = new javax.swing.JButton();
         jbtnOk = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jtxtImage = new javax.swing.JTextField();
         jbtnBrowse = new javax.swing.JButton();
+        jtxtSpecies = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
 
         setTitle("Nhập dữ liệu sinh viên");
 
-        jLabel1.setText("Fullname");
+        jLabel1.setText("Product");
 
-        jLabel2.setText("Phone number:");
+        jLabel2.setText("Unit Price");
 
-        jLabel3.setText("Email address:");
+        jLabel3.setText("Unit");
 
         jbtnCancel.setText("Cancel");
         jbtnCancel.addActionListener(new java.awt.event.ActionListener() {
@@ -77,6 +79,8 @@ public class NhapSinhVienFrame extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel5.setText("Species");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -84,50 +88,49 @@ public class NhapSinhVienFrame extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(18, 18, 18)
-                                .addComponent(jtxtFullname))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jtxtEmail)
-                                    .addComponent(jtxtSdt)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jtxtImage, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jbtnBrowse)
-                                        .addGap(0, 0, Short.MAX_VALUE)))))
-                        .addContainerGap(19, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jbtnOk)
                         .addGap(18, 18, 18)
-                        .addComponent(jbtnCancel)
-                        .addGap(32, 32, 32))))
+                        .addComponent(jbtnCancel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel1))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jtxtProduct)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jtxtImage)
+                                .addGap(18, 18, 18)
+                                .addComponent(jbtnBrowse))
+                            .addComponent(jtxtSpecies)
+                            .addComponent(jtxtUnit, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+                            .addComponent(jtxtUnitprice))))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jtxtFullname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxtProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jtxtSdt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtxtUnitprice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3)
-                    .addComponent(jtxtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtxtUnit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel5)
+                    .addComponent(jtxtSpecies, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jtxtImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -136,7 +139,7 @@ public class NhapSinhVienFrame extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbtnOk)
                     .addComponent(jbtnCancel))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(24, 24, 24))
         );
 
         pack();
@@ -144,22 +147,22 @@ public class NhapSinhVienFrame extends javax.swing.JInternalFrame {
 
     private void jbtnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnOkActionPerformed
         // TODO add your handling code here:
-//        Student sv = new Student(jtxtFullname.getText(), 
+//        Product sv = new Product(jtxtFullname.getText(), 
 //                                    jtxtSdt.getText(), 
 //                                    jtxtEmail.getText());
-//        sv.save_student_to_db();
-        Student sv = new Student(jtxtFullname.getText(), 
-                                   jtxtSdt.getText(), 
-                                    jtxtEmail.getText(),
+//        sv.save_product_to_db();
+        Product sv = new Product(jtxtProduct.getText(), 
+                                   jtxtUnitprice.getText(), 
+                                    jtxtUnit.getText(),
                                        jtxtImage.getText());
-        sv.save_student_with_image();
+        sv.save_product_with_image();
         JOptionPane.showMessageDialog(this, "Đã lưu vào CSDL", "Thông báo kết quả", 
                         JOptionPane.INFORMATION_MESSAGE);
-        jtxtFullname.setText("");
-        jtxtSdt.setText("");
-        jtxtEmail.setText("");
+        jtxtProduct.setText("");
+        jtxtUnitprice.setText("");
+        jtxtUnit.setText("");
         jtxtImage.setText("");
-        jtxtFullname.setFocusable(true);
+        jtxtProduct.setFocusable(true);
     }//GEN-LAST:event_jbtnOkActionPerformed
 
     private void jbtnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnCancelActionPerformed
@@ -192,12 +195,14 @@ public class NhapSinhVienFrame extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JButton jbtnBrowse;
     private javax.swing.JButton jbtnCancel;
     private javax.swing.JButton jbtnOk;
-    private javax.swing.JTextField jtxtEmail;
-    private javax.swing.JTextField jtxtFullname;
     private javax.swing.JTextField jtxtImage;
-    private javax.swing.JTextField jtxtSdt;
+    private javax.swing.JTextField jtxtProduct;
+    private javax.swing.JTextField jtxtSpecies;
+    private javax.swing.JTextField jtxtUnit;
+    private javax.swing.JTextField jtxtUnitprice;
     // End of variables declaration//GEN-END:variables
 }

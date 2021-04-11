@@ -20,39 +20,41 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  *
  * @author MyPC
  */
-public class SuaDuLieuSinhVienFrame extends javax.swing.JInternalFrame {
+public class EditProductDataFrame extends javax.swing.JInternalFrame {
     
-    public int idstudent;
+    public int idproduct;
 
     /**
      * Creates new form SuaDuLieuSinhVienFrame
      */
-    public SuaDuLieuSinhVienFrame() {
+    public EditProductDataFrame() {
         initComponents();
     }
 
-    public int getIdstudent() {
-        return idstudent;
+    public int getIdproduct() {
+        return idproduct;
     }
 
-    public void setIdstudent(int idstudent) {
-        this.idstudent = idstudent;
+    public void setIdproduct(int idproduct) {
+        this.idproduct = idproduct;
     }
     
-    public void load_student_data() throws SQLException{
-        Student sv = new Student();
-        Student kq = sv.get_student_by_id(this.idstudent);
-        jtxtFullname.setText(kq.getFullname());
-        jtxtSdt.setText(kq.getSdt());
-        jtxtEmail.setText(kq.getEmail());
+    public void load_product_data() throws SQLException{
+        Product sv = new Product();
+        Product kq = sv.get_product_by_id(this.idproduct);
+        jtxtProduct.setText(kq.getProduct());
+        jtxtUnitprice.setText(kq.getUnitprice());
+        jtxtUnit.setText(kq.getUnit());
+        jtxtSpecies.setText(kq.getSpecies());
     }
     
-    public void load_student_image_data(){
-        Student sv = new Student();
-        Student kq = sv.get_student_image_by_id(this.idstudent);
-        jtxtFullname.setText(kq.getFullname());
-        jtxtSdt.setText(kq.getSdt());
-        jtxtEmail.setText(kq.getEmail());
+    public void load_product_image_data(){
+        Product sv = new Product();
+        Product kq = sv.get_product_image_by_id(this.idproduct);
+        jtxtProduct.setText(kq.getProduct());
+        jtxtUnitprice.setText(kq.getUnitprice());
+        jtxtUnit.setText(kq.getUnit());
+        jtxtSpecies.setText(kq.getSpecies());
         ImageIcon icon = new ImageIcon(kq.getImageOut());
         jlblImage.setIcon(icon);
     }
@@ -67,23 +69,25 @@ public class SuaDuLieuSinhVienFrame extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jtxtFullname = new javax.swing.JTextField();
+        jtxtProduct = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jtxtSdt = new javax.swing.JTextField();
+        jtxtUnitprice = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jtxtEmail = new javax.swing.JTextField();
+        jtxtUnit = new javax.swing.JTextField();
         jbtnUpdate = new javax.swing.JButton();
         jbtnQuit = new javax.swing.JButton();
         jlblImage = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jtxtImage = new javax.swing.JTextField();
         jbtnBrowse = new javax.swing.JButton();
+        jtxtSpecies = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
 
-        jLabel1.setText("Fullname");
+        jLabel1.setText("Product");
 
-        jLabel2.setText("Phone");
+        jLabel2.setText("Unit Price");
 
-        jLabel3.setText("Email");
+        jLabel3.setText("Unit");
 
         jbtnUpdate.setText("Update");
         jbtnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -108,36 +112,43 @@ public class SuaDuLieuSinhVienFrame extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel5.setText("Species");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jtxtSdt)
-                                .addComponent(jtxtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jtxtImage, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(8, 8, 8)
-                                .addComponent(jbtnBrowse)))
-                        .addComponent(jtxtFullname))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jbtnUpdate)
+                        .addComponent(jLabel4)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jbtnUpdate)
+                                .addGap(18, 18, 18)
+                                .addComponent(jbtnQuit))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jbtnBrowse))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel5))
                         .addGap(18, 18, 18)
-                        .addComponent(jbtnQuit)))
-                .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jtxtImage, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jtxtUnitprice)
+                                .addComponent(jtxtUnit, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                .addComponent(jtxtProduct)
+                                .addComponent(jtxtSpecies)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addComponent(jlblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(14, 14, 14))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,25 +158,29 @@ public class SuaDuLieuSinhVienFrame extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
-                            .addComponent(jtxtFullname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jtxtProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jtxtSdt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtxtUnitprice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel3)
-                            .addComponent(jtxtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                            .addComponent(jtxtUnit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5)
+                            .addComponent(jtxtSpecies, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(jtxtImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jbtnBrowse))
-                        .addGap(30, 30, 30)
+                        .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jbtnUpdate)
                             .addComponent(jbtnQuit))
-                        .addGap(0, 119, Short.MAX_VALUE))
+                        .addGap(0, 99, Short.MAX_VALUE))
                     .addComponent(jlblImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -178,27 +193,28 @@ public class SuaDuLieuSinhVienFrame extends javax.swing.JInternalFrame {
             // TODO add your handling code here:
             this.setClosed(true);
         } catch (PropertyVetoException ex) {
-            Logger.getLogger(SuaDuLieuSinhVienFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EditProductDataFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jbtnQuitActionPerformed
 
     private void jbtnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnUpdateActionPerformed
           // TODO add your handling code here:
-//        Student sv = new Student(jtxtFullname.getText(), 
-//                                    jtxtSdt.getText(), 
-//                                    jtxtEmail.getText());
-//        sv.save_student_to_db();
+//        Product sv = new Product(jtxtProduct.getText(), 
+//                                    jtxtUnitprice.getText(), 
+//                                    jtxtUnit.getText());
+//        sv.save_product_to_db();
         
         try {
             // TODO add your handling code here:
-            Student sv = new Student(idstudent, jtxtFullname.getText(),
-                    jtxtSdt.getText(),
-                    jtxtEmail.getText());
-            sv.update_current_student();
+            Product sv = new Product(idproduct, jtxtProduct.getText(),
+                    jtxtUnitprice.getText(),
+                    jtxtUnit.getText(),
+                    jtxtSpecies.getText());
+            sv.update_current_product();
             JOptionPane.showMessageDialog(null, "Đã cập nhật dữ liệu");
             this.setClosed(true);
         } catch (PropertyVetoException ex) {
-            Logger.getLogger(SuaDuLieuSinhVienFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EditProductDataFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jbtnUpdateActionPerformed
 
@@ -223,13 +239,15 @@ public class SuaDuLieuSinhVienFrame extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JButton jbtnBrowse;
     private javax.swing.JButton jbtnQuit;
     private javax.swing.JButton jbtnUpdate;
     private javax.swing.JLabel jlblImage;
-    private javax.swing.JTextField jtxtEmail;
-    private javax.swing.JTextField jtxtFullname;
     private javax.swing.JTextField jtxtImage;
-    private javax.swing.JTextField jtxtSdt;
+    private javax.swing.JTextField jtxtProduct;
+    private javax.swing.JTextField jtxtSpecies;
+    private javax.swing.JTextField jtxtUnit;
+    private javax.swing.JTextField jtxtUnitprice;
     // End of variables declaration//GEN-END:variables
 }

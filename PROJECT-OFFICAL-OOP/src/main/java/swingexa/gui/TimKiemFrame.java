@@ -32,12 +32,13 @@ public class TimKiemFrame extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jtxtFullname = new javax.swing.JTextField();
+        jtxtProduct = new javax.swing.JTextField();
         jbtnSearch = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtblData = new javax.swing.JTable();
 
-        jLabel1.setText("Fullname");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setText("Product");
 
         jbtnSearch.setText("Search");
         jbtnSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -51,11 +52,11 @@ public class TimKiemFrame extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "ID", "Fullname", "Sdt", "Email"
+                "ID", "Product", "Unitprice", "Unit", "Species"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -72,25 +73,27 @@ public class TimKiemFrame extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jtxtFullname, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jtxtProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jbtnSearch))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jtxtFullname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxtProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbtnSearch))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();
@@ -98,13 +101,13 @@ public class TimKiemFrame extends javax.swing.JInternalFrame {
 
     private void jbtnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnSearchActionPerformed
         // TODO add your handling code here:
-        String s = jtxtFullname.getText();
-        Student sv = new Student();
-        ArrayList<Student> kq = sv.tim_kiem_sinh_vien_theo_fulllname(s);
+        String s = jtxtProduct.getText();
+        Product sv = new Product();
+        ArrayList<Product> kq = sv.search_for_products_by_name(s);
         DefaultTableModel table = (DefaultTableModel) this.jtblData.getModel();
         table.setRowCount(0);
-        kq.forEach((Student sv1) -> {
-            table.addRow(new Object[]{sv1.getIdstudent(), sv1.getFullname(), sv1.getSdt(), sv1.getEmail()});
+        kq.forEach((Product sv1) -> {
+            table.addRow(new Object[]{sv1.getIdproduct(), sv1.getProduct(), sv1.getUnitprice(), sv1.getUnit(), sv1.getSpecies()});
 //            System.out.println(sv.toString());
         });
         this.validate();
@@ -116,6 +119,6 @@ public class TimKiemFrame extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbtnSearch;
     private javax.swing.JTable jtblData;
-    private javax.swing.JTextField jtxtFullname;
+    private javax.swing.JTextField jtxtProduct;
     // End of variables declaration//GEN-END:variables
 }

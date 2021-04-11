@@ -13,7 +13,7 @@ import java.sql.Connection;
  */
 public class MainApplication extends javax.swing.JFrame {
     
-    public DanhSachSinhVienFrame dssv;
+    public ProductListFrame dssv;
     public NhapSinhVienFrame nhapsv;
     public Connection ketnoi;
     public TimKiemFrame timsv;
@@ -24,7 +24,7 @@ public class MainApplication extends javax.swing.JFrame {
     public MainApplication() {
         initComponents();
           
-        this.dssv = new DanhSachSinhVienFrame();
+        this.dssv = new ProductListFrame();
        
         this.desktopPane.add(dssv);
         
@@ -61,7 +61,7 @@ public class MainApplication extends javax.swing.JFrame {
         aboutMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Quản lý học tập");
+        setTitle("Quản lý sản phẩm");
 
         fileMenu.setMnemonic('f');
         fileMenu.setText("File");
